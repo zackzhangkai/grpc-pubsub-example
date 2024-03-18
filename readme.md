@@ -18,3 +18,8 @@
   `go run subclient/main.go`
 3. 发布消息，产生不同Topic的消息
   `go run pubclient/main.go`
+
+# 感谢
+
+https://github.com/moby/pubsub  
+https://github.com/vardius/pubsub
