@@ -19,6 +19,13 @@
 3. 发布消息，产生不同Topic的消息
   `go run pubclient/main.go`
 
+# 场景：
+
+- 不想引入kafaka、MQ等外部组件；
+- 只关注适时消息，不关注历史消息，且没有消息持久化需求；
+- 适用于事件通知机制，收到某些通知后，可以触发其他动作；
+
+
 # 感谢
 
 https://github.com/moby/pubsub  
