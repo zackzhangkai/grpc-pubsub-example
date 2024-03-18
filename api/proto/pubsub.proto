@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+
+import "google/protobuf/empty.proto";
+option go_package = "../proto";
+
+service PubSubService {
+    rpc Publish(PublishRequest) returns (google.protobuf.Empty);
+    rpc Subscribe(SubscribeRequest) returns (stream SubscribeResponse);
+}
+message PublishRequest {
+    string topic = 1;
+    bytes payload = 2;
+}
+
+message SubscribeRequest {
+    string topic = 1;
+}
+
+message SubscribeResponse {
+    bytes payload = 1;
+}
