@@ -39,8 +39,11 @@ func main() {
 			grpc_recovery.StreamServerInterceptor(opts...),
 		),
 	)
+	klog.Info("start server, listen: 1234")
 	proto.RegisterPubSubServiceServer(grpcServer, service.NewService())
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
+	klog.Warningf("stop server")
+	grpcServer.GracefulStop()
 }
